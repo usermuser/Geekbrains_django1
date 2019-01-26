@@ -1,0 +1,22 @@
+{% extends 'mainapp/layouts/layout.html' %}
+{% load static %}
+
+{% block menu %}
+    <div class="slider">
+        {% include 'mainapp/widgets/header.html' %}
+        <div class="text-slider">
+            <h3 class="green">тенденции</h3>
+            <h3 class="big"> удобные стулья</h3>
+            <p>Новый уровень комфорта. Отличные характеристики.</p>
+            <a href="#" class="button-order">заказать <img src="{% static 'img/arrow.png' %}" alt=""></a>
+        </div>
+        <div class="navi">
+            <a href="#"></a><a href="#"></a><a href="#"></a>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+ <h1>Test</h1>
+{% endblock %}
