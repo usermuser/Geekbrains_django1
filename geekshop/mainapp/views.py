@@ -3,11 +3,6 @@ from django.http import HttpRequest
 from .models import Product, Category
 import datetime
 import json
-# locations = [
-# {'city':'Moscow', 'address':1111, 'email':'ema11', 'phone':'ph23'},
-# {'city':'Chelyabinsk', 'address':22, 'email':'ema11', 'phone':'ph23'},
-# {'city':'Chelyabinsk', 'address':22, 'email':'ema11', 'phone':'ph23'},
-# ]
 
 now = datetime.datetime.now()
 cur_year = now.year
