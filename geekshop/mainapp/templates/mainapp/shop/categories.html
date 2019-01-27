@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>categories</title>
+    <h1>Welcome to our shop!</h1>
+    <h3>Please, choose category.</h3>
+    <ul>
+        {% for category in categories %}
+            <li>category name: {{ category.name }},
+                category slug: {{ category.slug}},
+                <p><a href="/shop/category/{{ category.slug }}">show products</a></p>
+            </li>
+        {% endfor %}
+
+    </ul>
+</head>
+<body>
+
+</body>
+</html>

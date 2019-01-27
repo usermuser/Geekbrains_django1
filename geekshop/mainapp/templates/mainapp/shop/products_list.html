@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Welcome to Products list!</h1>
+    <h3>You are in {{ product.category }} category</h3>
+
+    <ul>
+        {% for product in products_list %}
+            <li>{{ product.name }}
+                <a href="{% url 'shop:product_details' product.id %}">product details...</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
