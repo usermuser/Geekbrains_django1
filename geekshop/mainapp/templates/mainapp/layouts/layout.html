@@ -18,19 +18,16 @@
 <body>
 	<div class="container">
         {% block menu %}
-
         {% endblock %}
 
         <div class="content">
             {% block content %}
-
             {% endblock %}
         </div>
-
 	</div>
 
     {% block footer %}
-    <div class="footer">
+        <div class="footer">
         <div class="clearfix">
             <div class="text-footer">
                 <h3>контакты</h3>
@@ -47,7 +44,7 @@
                 </form>
             </div>
         </div>
-        <p class="small">&copy; GB 2017</p>
+        <p class="small">&copy; GB {{ date }}</p>
         <div class="social">
             <a href="#" class="social1"></a>
             <a href="#" class="social2"></a>
