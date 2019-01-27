@@ -41,8 +41,7 @@ def categories(request:HttpRequest):
 def products_list(request:HttpRequest, category_slug=None):
     category = get_object_or_404(Category,slug=category_slug)
     products_list = Product.objects.filter(category=category)
-    ctx = {'products_list': products_list}
-    print(products_list[0])
+    ctx = {'products_list': products_list, 'category':category}
     return render(request, 'mainapp/shop/products_list.html', ctx)
 
 def product_details(request:HttpRequest, product_id=None):

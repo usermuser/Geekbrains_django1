@@ -8,8 +8,8 @@
     <h1>{{ product.name }}</h1>
     <p>slug : {{ product.slug }}</p>
     <img src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
-    <p>price: {{ product.price }}</p>
-    <p>quantity: {{ product.stock }}</p>
+    <p>price: {{ product.price }} RUB</p>
+    <p>quantity: {{ product.stock }} </p>
     <p><a href="{% url 'shop:categories' %}">Back to categories</a></p>
     <p><a href="{% url 'main' %}">GO TO MAIN PAGE</a></p>
 

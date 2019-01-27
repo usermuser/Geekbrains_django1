@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ product.category }}</title>
+    <title>{{ category.name }}</title>
 </head>
 <body>
     <h1>Welcome to Products list!</h1>
-    <h3>You are in {{ product.category }} category</h3>
+    <h3>You are in {{ category.name }} category</h3>
 
     <ul>
         {% for product in products_list %}
