@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpRequest
+from .models import Product, Category
 import datetime
 import json
 # locations = [
@@ -35,3 +36,12 @@ def contacts(request:HttpRequest):
            'locations':locations,
            }
     return render(request, 'mainapp/contacts.html', ctx)
+
+
+def categories(request:HttpRequest):
+    categories = Category.objects.all()
+    pass
+
+def products_list(request:HttpRequest,category_id = None):
+    products_list = Product.objects.filter(category=category_id)
+    pass

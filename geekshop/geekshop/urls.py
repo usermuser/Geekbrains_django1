@@ -28,6 +28,8 @@ urlpatterns = [
     path('products/', mainapp.products, name='products'),
     path('contacts/', mainapp.contacts, name='contacts'),
     path('admin/', admin.site.urls),
+
+    path('shop/', include('mainapp.urls', namespace='shop')),
 ]
 
 if settings.DEBUG:
