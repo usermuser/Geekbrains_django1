@@ -11,6 +11,9 @@
     <p>price: {{ product.price }}</p>
     <p>quantity: {{ product.stock }}</p>
     <p><a href="{% url 'shop:categories' %}">Back to categories</a></p>
+    <p><a href="{% url 'main' %}">GO TO MAIN PAGE</a></p>
 
+    <h3>description</h3>
+    <p>{{ product.description }}</p>
 </body>
 </html>
