@@ -5,7 +5,7 @@ from django.http import HttpRequest
 #     return render(request, 'mainapp/index.html')
 
 def index(request:HttpRequest):
-    return render(request, 'mainapp/index_child.html')
+    return render(request, 'mainapp/index.html')
 
 def products(request:HttpRequest):
     return render(request, 'mainapp/products.html')
