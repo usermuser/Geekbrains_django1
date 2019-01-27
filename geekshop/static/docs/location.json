@@ -1,0 +1,5 @@
+[
+  {"phone": "+7-123-123-123", "email": "ema11111_111", "address": 1111, "city": "Moscow"},
+  {"phone": "222222_2222", "email": "ema1_2222_222", "address": 222222, "city": "Chelyabinsk"},
+  {"phone": "3333_3333", "email": "email_333_333", "address": 3333333, "city": "Ekaterinburg"}
+]
