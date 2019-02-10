@@ -35,4 +35,5 @@ def login(request:HttpRequest):
 
 
 def logout(request:HttpRequest):
-    return HttpResponse('auth/logout')
+    auth.logout(request)
+    return HttpResponseRedirect('/')
