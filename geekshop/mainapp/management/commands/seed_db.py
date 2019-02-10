@@ -1,8 +1,8 @@
 from django.core.management.base import BaseCommand
 
 from mainapp.models import Category, Product
-from django.contrib.auth.models import User
-
+#from django.contrib.auth.models import User
+from authapp.models import CustomUser
 
 
 class Command(BaseCommand):
@@ -25,9 +25,7 @@ class Command(BaseCommand):
         print('[+] New Category() with name {} created successfully'.format(second_cat.name))
 
 
-
-
-
+        # delete all products in db and create new
         Product.objects.all().delete()
 
         new_prod = Product()
@@ -86,16 +84,20 @@ class Command(BaseCommand):
         third_prod.save()
         print('[+] New Product() with name {} created succesfully'.format(third_prod.name))
 
+
+        # check if superuser with name 'admin1234' already in db, if not - create
+        '''
         new_admin = 'admin1234'
-        old_admin = User.objects.get(username=new_admin)
+        old_admin = CustomUser.objects.get(username=new_admin)
 
         if new_admin == old_admin.username:
             print('[-] {} is already exists, no need to create'.format(new_admin))
         else:
-            new_admin = User.objects.create_superuser(
-                'admin1234', 'admin@admin.ru', '1234'
+            new_admin = CustomUser.objects.create_superuser(
+                'admin1234', 'admin@admin.ru', '1234', age=22
             )
             print('[+] new superuser with name {} created successfully'.format(new_admin))
+        '''
 
 
 
