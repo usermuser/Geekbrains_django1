@@ -4,6 +4,9 @@ from . import views
 app_name = 'authapp'
 
 urlpatterns = [
-    path(''),
-    path(''),
+    # http://127.0.0.1:8000/auth/login
+    path('login/', views.login, name='login'),
+
+    # http://127.0.0.1:8000/auth/logout
+    path('logout/', views.logout, name='logout'),
 ]
