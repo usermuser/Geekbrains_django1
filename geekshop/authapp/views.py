@@ -23,6 +23,9 @@ def login(request:HttpRequest):
 
         user = auth.authenticate(username=login, password=password)
 
+        # 3.1 Сохранение при регистрации
+        #RegisterForm.save()
+
         if user and user.is_active:
             auth.login(request, user)
             return HttpResponseRedirect('/')
