@@ -3,6 +3,8 @@ from django.core.management.base import BaseCommand
 from mainapp.models import Category, Product
 #from django.contrib.auth.models import User
 from authapp.models import CustomUser
+from django.db.utils import IntegrityError
+#from authapp.models import DoesNotExist
 
 
 class Command(BaseCommand):
@@ -86,18 +88,32 @@ class Command(BaseCommand):
 
 
         # check if superuser with name 'admin1234' already in db, if not - create
-        '''
-        new_admin = 'admin1234'
-        old_admin = CustomUser.objects.get(username=new_admin)
 
-        if new_admin == old_admin.username:
-            print('[-] {} is already exists, no need to create'.format(new_admin))
-        else:
+
+        new_admin = 'admin1234'
+        try:
+
+            old_admin = CustomUser.objects.get(username=new_admin)
+
+        except Exception as e:
+
+            print(e)
+
             new_admin = CustomUser.objects.create_superuser(
                 'admin1234', 'admin@admin.ru', '1234', age=22
             )
+
             print('[+] new superuser with name {} created successfully'.format(new_admin))
-        '''
+
+        else:
+            print('[-] {} is already exists, no need to create'.format(new_admin))
+
+
+
+
+
+
+
 
 
 
