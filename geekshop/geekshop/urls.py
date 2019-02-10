@@ -27,6 +27,7 @@ urlpatterns = [
     path('', mainapp.index, name='main'),
     path('products/', mainapp.products, name='products'),
     path('contacts/', mainapp.contacts, name='contacts'),
+    path('contacts/load', mainapp.json_to_db, name='load'),
     path('admin/', admin.site.urls),
 
     path('shop/', include('mainapp.urls', namespace='shop')),
