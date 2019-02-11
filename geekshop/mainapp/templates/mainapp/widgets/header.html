@@ -7,7 +7,7 @@
 		<li><a href="{% url 'shop:categories' %}">новый каталог</a></li>
 		{% if user.is_authenticated %}
 
-			<li><a href="{% url 'auth:edit' %}">мой профиль</a></li>
+			<li><a href="{% url 'auth:edit' %}">мой профиль ({{ user.first_name }})</a></li>
 
 			<li><a href="{% url 'auth:logout' %}">выйти</a></li>
 

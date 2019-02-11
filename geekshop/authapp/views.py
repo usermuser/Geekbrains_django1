@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.http import HttpResponse, HttpRequest
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm, RegisterForm, UpdateForm
 from django.contrib import auth
 from django.urls import reverse
 
@@ -42,7 +42,28 @@ def logout(request: HttpRequest):
 
 
 def edit(request: HttpRequest):
-    return HttpResponse('edit')
+    title = 'редактировать профиль'
+
+    # 1. Создать рег форму для заполнения, перед этим импортируй
+
+    if request.method == 'POST':
+        update_form = UpdateForm(request.POST, instance=request.user)
+
+        # 2. Проверить данные из запроса
+        if update_form.is_valid():
+            # 3. Сохранение при регистрации
+            update_form.save()
+
+            return HttpResponseRedirect(reverse('auth:edit'))
+
+    else:
+        update_form = UpdateForm(instance=request.user)
+
+    ctx = {
+        'title': title,
+        'update_form': update_form,
+    }
+    return render(request, 'authapp/edit.html', ctx)
 
 def register(request: HttpRequest):
     title = 'регистрация'
