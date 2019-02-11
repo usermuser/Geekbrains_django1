@@ -95,7 +95,7 @@ class Command(BaseCommand):
 
             old_admin = CustomUser.objects.get(username=new_admin)
 
-        except Exception as e:
+        except Exception as e:  # refactor this code later (catch errors properly)
 
             print(e)
 

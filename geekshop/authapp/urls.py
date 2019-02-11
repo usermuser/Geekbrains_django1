@@ -14,5 +14,9 @@ urlpatterns = [
     # http://127.0.0.1:8000/auth/logout
     path('logout/', views.logout, name='logout'),
 
+    # http://127.0.0.1:8000/auth/edit
     path('edit/', views.edit, name='edit'),  # edit user data
+
+    # http://127.0.0.1:8000/auth/register
+    path('register/', views.register, name='register'),  # register new user
 ]

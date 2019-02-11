@@ -18,14 +18,14 @@ class LoginForm(AuthenticationForm):
             field.widget.attrs['class'] = 'form-control'
 
 
-# class RegisterForm(UserCreationForm):
-#     class Meta:
-#         model = CustomUser
-#         fields = ('put fields later')
+class RegisterForm(UserCreationForm):
+    class Meta:
+        model = CustomUser
+        fields = ('username', 'age', 'password1', 'password2', 'email', 'first_name')
 
-    # def __init__(self, *args, **kwargs):
-    #     super(RegisterForm, self).__init__(*args, **kwargs)
-    #
-    #     for field_name, field in self.fields.items():
-    #         field.widget.attrs['class'] = 'form-control'
-    #         field.help_text = ''
+    def __init__(self, *args, **kwargs):
+        super(RegisterForm, self).__init__(*args, **kwargs)
+
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+            field.help_text = ''  # clean help_text to make form look more fancy
