@@ -52,17 +52,6 @@ def contacts(request: HttpRequest):
     return render(request, 'mainapp/contacts.html', ctx)
 
 
-# def contacts(request: HttpRequest):
-#     with open ('static/docs/location.json') as data:
-#         locations = json.load(data)
-#
-#     ctx = {'page_title': 'кОнтактЫ',
-#            'date': cur_year,
-#            'locations': locations,
-#            }
-#     return render(request, 'mainapp/contacts.html', ctx)
-
-
 def categories(request: HttpRequest):
     categories = Category.objects.all()
     ctx = {'categories': categories}

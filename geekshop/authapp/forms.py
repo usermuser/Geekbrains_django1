@@ -23,9 +23,9 @@ class LoginForm(AuthenticationForm):
 #         model = CustomUser
 #         fields = ('put fields later')
 
-    def __init__(self, *args, **kwargs):
-        super(RegisterForm, self).__init__(*args, **kwargs)
-
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'form-control'
-            field.help_text = ''
+    # def __init__(self, *args, **kwargs):
+    #     super(RegisterForm, self).__init__(*args, **kwargs)
+    #
+    #     for field_name, field in self.fields.items():
+    #         field.widget.attrs['class'] = 'form-control'
+    #         field.help_text = ''

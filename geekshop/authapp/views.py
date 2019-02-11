@@ -37,6 +37,10 @@ def login(request:HttpRequest):
     return render(request, 'authapp/login.html', ctx)
 
 
-def logout(request:HttpRequest):
+def logout(request: HttpRequest):
     auth.logout(request)
     return HttpResponseRedirect('/')
+
+
+def edit(request: HttpRequest):
+    return HttpResponse('edit')

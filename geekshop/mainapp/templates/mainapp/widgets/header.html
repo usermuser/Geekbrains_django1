@@ -6,7 +6,15 @@
 		<li><a href="{% url 'contacts' %}">контакты</a></li>
 		<li><a href="{% url 'shop:categories' %}">новый каталог</a></li>
 		{% if user.is_authenticated %}
+
+			<li><a href="{% url 'auth:edit' %}">мой профиль</a></li>
+
 			<li><a href="{% url 'auth:logout' %}">выйти</a></li>
+
+		{% else %}
+
+			<li><a href="{% url 'auth:login' %}">войти</a></li>
+
 		{% endif %}
 
 	</ul>
