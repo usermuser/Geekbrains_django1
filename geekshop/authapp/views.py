@@ -7,6 +7,8 @@ from django.urls import reverse
 def redirect_to_login(request: HttpRequest):
     return HttpResponseRedirect('/auth/login')
 
+
+
 def login(request: HttpRequest):
     title = 'войти на сайт'
 
