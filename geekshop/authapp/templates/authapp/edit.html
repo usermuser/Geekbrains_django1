@@ -1,0 +1,15 @@
+{% extends 'authapp/layouts/layout.html' %}
+
+{% block content %}
+
+    <form action="{% url 'auth:edit' %}" method="post">
+        {% csrf_token %}
+        {{ update_form.as_p }}
+
+        <p>
+            <input type="submit" value="сохранить">
+        </p>
+    </form>
+
+    <a href="{% url 'main' %}"> на главную </a>
+{% endblock %}
