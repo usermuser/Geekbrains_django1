@@ -99,14 +99,22 @@ class Command(BaseCommand):
 
             print(e)
 
-            new_admin = CustomUser.objects.create_superuser(
+            CustomUser.objects.create_superuser(
                 'admin1234', 'admin@admin.ru', '1234', age=22
             )
 
-            print('[+] new superuser with name {} created successfully'.format(new_admin))
+            print('[+] new superuser with name {} created successfully'.format('admin1234'))
 
         else:
-            print('[-] {} is already exists, no need to create'.format(new_admin))
+            print('[+] {} is already exists, deleting...'.format(new_admin))
+            old_admin.delete()
+            print('[+]deleted...')
+            CustomUser.objects.create_superuser(
+                'admin1234', 'admin@admin.ru', '1234', age=22
+            )
+
+
+
 
 
 

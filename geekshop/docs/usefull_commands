@@ -1,0 +1,4 @@
+vim ~/.bashrc
+alias dmig='python manage.py makemigrations && python manage.py migrate'
+alias drun='python manage.py runserver'
+alias dseed='python manage.py seed_db'
