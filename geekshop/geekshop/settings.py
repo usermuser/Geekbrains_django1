@@ -132,4 +132,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 # don't forget to change this option if you for example delete authapp
-AUTH_USER_MODEL = 'authapp.CustomUser'
+AUTH_USER_MODEL = 'authapp.ShopUser'

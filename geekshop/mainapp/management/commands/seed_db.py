@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 
 from mainapp.models import Category, Product
 #from django.contrib.auth.models import User
-from authapp.models import CustomUser
+from authapp.models import ShopUser
 from django.db.utils import IntegrityError
 #from authapp.models import DoesNotExist
 
@@ -93,13 +93,13 @@ class Command(BaseCommand):
         new_admin = 'admin1234'
         try:
 
-            old_admin = CustomUser.objects.get(username=new_admin)
+            old_admin = ShopUser.objects.get(username=new_admin)
 
         except Exception as e:  # refactor this code later (catch errors properly)
 
             print(e)
 
-            CustomUser.objects.create_superuser(
+            ShopUser.objects.create_superuser(
                 'admin1234', 'admin@admin.ru', '1234', age=22
             )
 
@@ -109,7 +109,7 @@ class Command(BaseCommand):
             print('[+] {} is already exists, deleting...'.format(new_admin))
             old_admin.delete()
             print('[+]deleted...')
-            CustomUser.objects.create_superuser(
+            ShopUser.objects.create_superuser(
                 'admin1234', 'admin@admin.ru', '1234', age=22
             )
 

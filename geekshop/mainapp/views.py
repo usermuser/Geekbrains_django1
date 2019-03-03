@@ -16,11 +16,19 @@ def index(request:HttpRequest):
     return render(request, 'mainapp/index.html', ctx)
 
 
-def products(request: HttpRequest):
-    links = ['все', 'дом', 'офис', 'модерн', 'классика']
-    ctx = {'page_title': 'каТалоГ',
-           'links': links,
+def products(request: HttpRequest, id=None):
+    title = 'продукты'
+    links_menu = Category.objects.all()
+
+    if id is not None:
+        same_products = Product.objects.filter(category__pk=id)
+    else:
+        same_products = Product.objects.all()
+
+    ctx = {'page_title': title,
+           'links': links_menu,
            'date': cur_year,
+           'same_products': same_products,
            }
     return render(request, 'mainapp/products.html', ctx)
 
