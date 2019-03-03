@@ -51,6 +51,7 @@ def json_to_db(request: HttpRequest):
 
     return HttpResponseRedirect('/')
 
+
 def contacts(request: HttpRequest):
     contacts = Contacts.objects.all()
     ctx = {'locations': contacts,
@@ -60,6 +61,7 @@ def contacts(request: HttpRequest):
     return render(request, 'mainapp/contacts.html', ctx)
 
 
+# not using
 def categories(request: HttpRequest):
     categories = Category.objects.all()
     ctx = {'categories': categories}

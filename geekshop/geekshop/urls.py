@@ -25,12 +25,13 @@ from django.conf import settings
 
 urlpatterns = [
     path('', mainapp.index, name='main'),
-    path('products/', mainapp.products, name='products'),
+    # path('products/', mainapp.products, name='products'),
+    path('products/', include('mainapp.urls', namespace='products')),
     path('contacts/', mainapp.contacts, name='contacts'),
     path('contacts/load', mainapp.json_to_db, name='load'),
     path('admin/', admin.site.urls),
 
-    path('shop/', include('mainapp.urls', namespace='shop')),
+    # path('shop/', include('mainapp.urls', namespace='shop')),
     path('auth/', include('authapp.urls', namespace='auth')),
 ]
 

@@ -33,5 +33,17 @@
 					</a>
 				</div>
 
+				{% for product in same_products %}
+					<div class="block">
+						<a href="#"><img src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+							<div class="text">
+								<img src="{% static 'img/icon-hover.png' %}" alt="img">
+								<h4>{{ product.name }}</h4>
+								<p>Не оторваться. </p>
+							</div>
+						</a>
+					</div>
+				{% endfor %}
+
 			</div>
 		</div>

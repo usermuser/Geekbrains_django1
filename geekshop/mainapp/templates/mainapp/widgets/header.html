@@ -2,9 +2,9 @@
 	<a href="/" class="logo"></a>
 	<ul class="menu">
 		<li><a href="{% url 'main' %}" class="active">домой</a></li>
-		<li><a href="{% url 'products' %}">продукты</a></li>
+		<li><a href="{% url 'mainapp:products' %}">продукты</a></li>
 		<li><a href="{% url 'contacts' %}">контакты</a></li>
-		<li><a href="{% url 'shop:categories' %}">новый каталог</a></li
+
 
 		{% if user.is_authenticated %}
 
@@ -20,6 +20,7 @@
 
 		<!--<li><a href="#" class="search"></a></li>-->
 		<!--<li><a href="#" class="basket">корзина</a></li>-->
+		<li><a href="#">поиск</a></li>
 		<li><a href="#">корзина</a></li>
 	</ul>
 
