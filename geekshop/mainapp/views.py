@@ -32,11 +32,21 @@ def products(request: HttpRequest, id=None):
            }
     return render(request, 'mainapp/products.html', ctx)
 
-def product_detail(request: HttpRequest, id=None):
+
+def product_details(request: HttpRequest, id=None):
     if id is not None:
         item = get_object_or_404(Product, id=id)
-        return HttpResponse(item)
+        same_products = Product.objects.exclude(pk=id).filter(category__pk=item.category_id)
+        links_menu = Category.objects.all()
 
+        ctx = {
+                'title': 'Товар: {}'.format(item.name),
+                'same_products': same_products,
+                'links': links_menu,
+                'item': item,
+        }
+
+        return render(request, 'mainapp/details.html', ctx)
 
 def json_to_db(request: HttpRequest):
 

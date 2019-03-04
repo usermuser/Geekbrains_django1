@@ -1,0 +1,21 @@
+{% extends 'mainapp/layouts/layout.html' %}
+{% load static %}
+
+{% block title %} {{ page_title|title }} {% endblock %}
+
+{% block menu %}
+	<div class="hero-white">
+		{% include 'mainapp/widgets/header.html' %}
+	</div>
+{% endblock %}
+
+{% block content %}
+	<div class="details">
+		{% include 'mainapp/widgets/links_clearfix.html' %}
+		{% include 'mainapp/widgets/details_products.html' %}
+		{% include 'mainapp/widgets/related.html' %}
+	</div>
+	<div class="clr"></div>
+{% endblock %}
+
+

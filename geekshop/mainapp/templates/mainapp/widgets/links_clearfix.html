@@ -1,6 +1,6 @@
 <div class="links clearfix">
 	<ul class="links-menu">
-		<li><a href="#">all</a></li>
+		<li><a href="{% url 'mainapp:index' %}">all</a></li>
 		{% for category in links %}
 			<li><a href="{% url 'mainapp:products' category.id %}">{{ category.name }}</a></li>
 		{% endfor %}

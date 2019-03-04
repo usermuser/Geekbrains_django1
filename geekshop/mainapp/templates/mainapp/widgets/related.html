@@ -2,9 +2,10 @@
 <div class="related">
 			<div class="title clearfix">
 				<h2>Похожие продукты</h2>
-				<a class="explore" href="#">показать все <img src="{% static 'img/arrow.png' %}" alt=""></a>
+				<a class="explore" href="{% url 'products:index' %}">показать все <img src="{% static 'img/arrow.png' %}" alt=""></a>
 			</div>
 			<div class="related-products clearfix">
+
 				{% for product in same_products %}
 					<div class="block">
 						<a href="#"><img src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
