@@ -14,7 +14,7 @@ urlpatterns = [
     # path('category/<slug:category_slug>/', views.products_list, name='products'),
 
     # http://127.0.0.1:8000/products/1
-    path('<int:product_id>/', views.products_list, name='products'),
+    path('<int:id>/', views.products, name='products'),
 
     # path('product/<int:product_id>/', views.product_details, name='product_details'),
 
