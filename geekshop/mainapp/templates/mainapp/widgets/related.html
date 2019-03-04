@@ -12,6 +12,9 @@
 								<img src="{% static 'img/icon-hover.png' %}" alt="img">
 								<h4>продукт: {{ product.name }}</h4>
 								<p>категория: {{ product.category.name }} </p>
+
+                                <p>цена: {{ product.price }} руб</p>
+                                <p>на складе: {{ product.stock }} шт</p>
 							</div>
 						</a>
 					</div>
