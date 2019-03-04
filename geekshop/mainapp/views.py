@@ -40,7 +40,7 @@ def product_details(request: HttpRequest, id=None):
         links_menu = Category.objects.all()
 
         ctx = {
-                'title': 'Товар: {}'.format(item.name),
+                'page_title': 'Товар: {}'.format(item.name),
                 'same_products': same_products,
                 'links': links_menu,
                 'item': item,

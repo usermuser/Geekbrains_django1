@@ -1,0 +1,25 @@
+{% load static %}
+<div class="related">
+			<div class="title clearfix">
+				<h2>Каталог</h2>
+				<a class="explore" href="{% url 'products:index' %}">показать все <img src="{% static 'img/arrow.png' %}" alt=""></a>
+			</div>
+			<div class="related-products clearfix">
+
+				{% for product in same_products %}
+					<div class="block">
+						<a href="{% url 'mainapp:details' id=product.id %}"><img src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+							<div class="text">
+								<img src="{% static 'img/icon-hover.png' %}" alt="img">
+								<h4>продукт: {{ product.name }}</h4>
+								<p>категория: {{ product.category.name }} </p>
+
+                                <p>цена: {{ product.price }} руб</p>
+                                <p>на складе: {{ product.stock }} шт</p>
+							</div>
+						</a>
+					</div>
+				{% endfor %}
+
+			</div>
+		</div>
