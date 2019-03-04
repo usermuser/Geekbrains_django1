@@ -32,6 +32,8 @@ def products(request: HttpRequest, id=None):
            }
     return render(request, 'mainapp/products.html', ctx)
 
+def product_detail
+
 
 def json_to_db(request: HttpRequest):
 
@@ -61,7 +63,9 @@ def contacts(request: HttpRequest):
     return render(request, 'mainapp/contacts.html', ctx)
 
 
-# not using
+# this code has been written as homework for lesson2 or 3, i don't remember,
+# for now we don't need it
+'''
 def categories(request: HttpRequest):
     categories = Category.objects.all()
     ctx = {'categories': categories}
@@ -79,3 +83,4 @@ def product_details(request:HttpRequest, product_id=None):
     product = get_object_or_404(Product, id=product_id)
     ctx = {'product': product}
     return render(request, 'mainapp/shop/product_details.html', ctx)
+'''
