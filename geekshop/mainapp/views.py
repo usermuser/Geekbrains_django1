@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpRequest, HttpResponseRedirect
+from django.http import HttpRequest, HttpResponseRedirect, HttpResponse
 from .models import Product, Category, Contacts
 import datetime
 import json
@@ -32,7 +32,10 @@ def products(request: HttpRequest, id=None):
            }
     return render(request, 'mainapp/products.html', ctx)
 
-def product_detail
+def product_detail(request: HttpRequest, id=None):
+    if id is not None:
+        item = get_object_or_404(Product, id=id)
+        return HttpResponse(item)
 
 
 def json_to_db(request: HttpRequest):
