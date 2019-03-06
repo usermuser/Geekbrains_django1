@@ -4,6 +4,7 @@
 {% block title %} {{ page_title|title }} {% endblock %}
 
 {% block menu %}
+{% endfor %}
 	<div class="hero-white">
 		{% include 'mainapp/widgets/header.html' %}
 	</div>
@@ -13,6 +14,7 @@
 	<div class="details">
 		{% include 'mainapp/widgets/links_clearfix.html' %}
 		{% include 'mainapp/widgets/items.html' %}
+
 	</div>
 	<div class="clr"></div>
 {% endblock %}
