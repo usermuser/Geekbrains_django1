@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest, HttpResponseRedirect, HttpResponse
 from .models import Product, Category, Contacts
+from basketapp.models import Basket
 import datetime
 import json
 
@@ -9,9 +10,11 @@ cur_year = now.year
 
 
 def index(request:HttpRequest):
+    basket = Basket.objects.filter(user=request.user)
     ctx = {'page_title': 'гЛаВная',
            'slider_big_text': 'удобные стулья',
            'date': cur_year,
+           'basket': basket,
            }
     return render(request, 'mainapp/index.html', ctx)
 
@@ -19,6 +22,8 @@ def index(request:HttpRequest):
 def products(request: HttpRequest, id=None):
     title = 'продукты'
     links_menu = Category.objects.all()
+    basket = Basket.objects.filter(user=request.user)
+
 
     if id is not None:
         same_products = Product.objects.filter(category__pk=id)
@@ -29,11 +34,15 @@ def products(request: HttpRequest, id=None):
            'links': links_menu,
            'date': cur_year,
            'same_products': same_products,
+           'basket': basket,
            }
     return render(request, 'mainapp/products.html', ctx)
 
 
 def product_details(request: HttpRequest, id=None):
+    # request.session['test'] = 1011110;
+    # request.session.flush()
+
     if id is not None:
         item = get_object_or_404(Product, id=id)
         same_products = Product.objects.exclude(pk=id).filter(category__pk=item.category_id)

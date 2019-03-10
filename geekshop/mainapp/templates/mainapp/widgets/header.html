@@ -8,7 +8,7 @@
 
 		{% if user.is_authenticated %}
 
-			<li><a href="{% url 'auth:edit' %}">мой профиль ({{ user.first_name }})</a></li>
+			<li><a href="{% url 'auth:edit' %}">мой профиль ({{ user.name }})</a></li>
 
 			<li><a href="{% url 'auth:logout' %}">выйти</a></li>
 
@@ -21,7 +21,7 @@
 		<!--<li><a href="#" class="search"></a></li>-->
 		<!--<li><a href="#" class="basket">корзина</a></li>-->
 		<li><a href="#">поиск</a></li>
-		<li><a href="#">корзина</a></li>
+		<li><a href="#">корзина ({{ basket | length }})</a></li>
 	</ul>
 
 </div>

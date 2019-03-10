@@ -26,10 +26,12 @@ from django.conf import settings
 urlpatterns = [
     path('', mainapp.index, name='main'),
     path('products/', include('mainapp.urls', namespace='products')),
+    path('basket/', include('basketapp.urls', namespace='basket')),
+
     path('contacts/', mainapp.contacts, name='contacts'),
     path('contacts/load', mainapp.json_to_db, name='load'),
     path('admin/', admin.site.urls),
-    path('basket/', include('basketapp.urls', namespace='basket')),
+
 
     path('auth/', include('authapp.urls', namespace='auth')),
 ]
