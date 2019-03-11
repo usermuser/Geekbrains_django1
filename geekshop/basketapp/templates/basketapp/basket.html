@@ -1,0 +1,29 @@
+{% extends 'mainapp/layouts/layout.html' %}
+{% load static %}
+
+{% block title %} {{ page_title | title }} {% endblock %}
+
+{% block menu %}
+	<div class="hero-white">
+		{% include 'mainapp/widgets/header.html' %}
+	</div>
+{% endblock %}
+
+{% block content %}
+	<div class="details">
+		{% include 'mainapp/widgets/links_clearfix.html' %}
+
+        {% if basket %}
+        <h2>Ваша корзина</h2>
+        <ul>
+		    {% for item in basket %}
+                <li> продукт: {{ item.product.name }} , количество {{ product.quantity }}</li>
+            {% endfor %}
+         {% else %}
+            <h2> ваша корзина пуста </h2>
+        </ul>
+        {% endif %}
+
+	</div>
+	<div class="clr"></div>
+{% endblock %}

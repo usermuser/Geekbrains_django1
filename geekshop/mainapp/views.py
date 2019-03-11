@@ -10,7 +10,10 @@ cur_year = now.year
 
 
 def index(request:HttpRequest):
-    basket = Basket.objects.filter(user=request.user)
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
     ctx = {'page_title': 'гЛаВная',
            'slider_big_text': 'удобные стулья',
            'date': cur_year,
@@ -20,9 +23,12 @@ def index(request:HttpRequest):
 
 
 def products(request: HttpRequest, id=None):
+    basket = []
     title = 'продукты'
     links_menu = Category.objects.all()
-    basket = Basket.objects.filter(user=request.user)
+
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
 
 
     if id is not None:

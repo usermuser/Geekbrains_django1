@@ -17,7 +17,7 @@ urlpatterns = [
     path('<int:id>/', views.products, name='products'), # {% url 'mainapp:products' id=1 %}
 
     # http://127.0.0.1:8000/products/details/1
-    path('details/<int:id>/', views.product_details, name='details'), # {% url 'mainapp:details' id=1 %}
+    path('details/<int:id>/', views.product_details, name='details'),  # {% url 'mainapp:details' id=1 %}
 
     # path('product/<int:product_id>/', views.product_details, name='product_details'), # old_code
 

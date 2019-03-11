@@ -21,7 +21,7 @@
 		<!--<li><a href="#" class="search"></a></li>-->
 		<!--<li><a href="#" class="basket">корзина</a></li>-->
 		<li><a href="#">поиск</a></li>
-		<li><a href="#">корзина ({{ basket | length }})</a></li>
+		<li><a href="{% url 'basketapp:show_basket'%}">корзина {% if basket %} ({{ basket | length }}) {% endif %} </a></li>
 	</ul>
 
 </div>

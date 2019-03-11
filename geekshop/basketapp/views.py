@@ -4,6 +4,20 @@ from mainapp.models import Product
 from basketapp.models import Basket
 
 
+def basket(request: HttpRequest):
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+        for item in basket:
+            print(item.product.slug)
+
+    ctx = {
+        'page_title': 'Basket',
+        'basket': basket,
+    }
+    return render(request, 'basketapp/basket.html', ctx)
+
+
 def add(request: HttpRequest, id: int):
     product = get_object_or_404(Product, pk=id)
 
