@@ -8,7 +8,7 @@ import json
 now = datetime.datetime.now()
 cur_year = now.year
 
-
+# probably this function we not using (check later)
 def index(request:HttpRequest):
     basket = []
     if request.user.is_authenticated:
@@ -49,6 +49,10 @@ def product_details(request: HttpRequest, id=None):
     # request.session['test'] = 1011110;
     # request.session.flush()
 
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
     if id is not None:
         item = get_object_or_404(Product, id=id)
         same_products = Product.objects.exclude(pk=id).filter(category__pk=item.category_id)
@@ -59,6 +63,7 @@ def product_details(request: HttpRequest, id=None):
                 'same_products': same_products,
                 'links': links_menu,
                 'item': item,
+                'basket': basket,
         }
 
         return render(request, 'mainapp/details.html', ctx)

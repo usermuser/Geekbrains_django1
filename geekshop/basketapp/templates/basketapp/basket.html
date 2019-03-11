@@ -17,7 +17,7 @@
         <h2>Ваша корзина</h2>
         <ul>
 		    {% for item in basket %}
-                <li> продукт: {{ item.product.name }} , количество {{ product.quantity }}</li>
+                <li> продукт: {{ item.product.name }} , количество: {{ item.quantity }}</li>
             {% endfor %}
          {% else %}
             <h2> ваша корзина пуста </h2>

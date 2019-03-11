@@ -8,7 +8,7 @@ urlpatterns = [
     # path('', views.categories, name='categories'),
 
     # http://127.0.0.1:8000/products
-    path('', views.products, name='index'),
+    path('', views.products, name='products'),
 
     # http://127.0.0.1:8000/shop/category/pechenki or chai (any category_slug)
     # path('category/<slug:category_slug>/', views.products_list, name='products'),
