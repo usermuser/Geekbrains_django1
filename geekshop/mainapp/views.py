@@ -1,12 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest
+from .models import Product, Category
 import datetime
 import json
-# locations = [
-# {'city':'Moscow', 'address':1111, 'email':'ema11', 'phone':'ph23'},
-# {'city':'Chelyabinsk', 'address':22, 'email':'ema11', 'phone':'ph23'},
-# {'city':'Chelyabinsk', 'address':22, 'email':'ema11', 'phone':'ph23'},
-# ]
 
 now = datetime.datetime.now()
 cur_year = now.year
@@ -35,3 +31,20 @@ def contacts(request:HttpRequest):
            'locations':locations,
            }
     return render(request, 'mainapp/contacts.html', ctx)
+
+
+def categories(request:HttpRequest):
+    categories = Category.objects.all()
+    ctx = {'categories': categories}
+    return render(request, 'mainapp/shop/categories.html', ctx)
+
+def products_list(request:HttpRequest, category_slug=None):
+    category = get_object_or_404(Category,slug=category_slug)
+    products_list = Product.objects.filter(category=category)
+    ctx = {'products_list': products_list, 'category':category}
+    return render(request, 'mainapp/shop/products_list.html', ctx)
+
+def product_details(request:HttpRequest, product_id=None):
+    product = get_object_or_404(Product,id=product_id)
+    ctx = {'product': product}
+    return render(request,'mainapp/shop/product_details.html', ctx)
